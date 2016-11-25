@@ -1,6 +1,9 @@
 <h1><%= @cocktail.name %></h1>
+<% @cocktail.photos.each do |photo| %>
+  <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
+<% end %>
 
-<%= link_to 'Edit cocktail', edit_cocktail_path(@cocktail)%>
+<p><%= link_to 'Edit cocktail', edit_cocktail_path(@cocktail)%></p>
 
 <h3>Ingredients</h3>
 <% @doses.each do |dose| %>
