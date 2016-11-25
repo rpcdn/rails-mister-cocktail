@@ -1,2 +1,11 @@
-<h1>Doses#edit</h1>
-<p>Find me in app/views/doses/edit.html.erb</p>
+<h1>Edit the dose for <%= @cocktail.name.capitalize %></h1>
+
+<%= simple_form_for [@cocktail, @dose] do |f| %>
+  <%= f.input :description %>
+  <%= f.input :ingredient_id, collection: @ingredients %>
+  <%= f.submit "Edit dose", class: "btn btn-primary" %>
+<% end %>
+
+<br>
+<br>
+<%= link_to 'Home', cocktails_path, class: "btn btn-primary" %>

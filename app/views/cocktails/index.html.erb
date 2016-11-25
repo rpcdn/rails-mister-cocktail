@@ -1,3 +1,22 @@
-<h1>Cocktails#index</h1>
-<p>Find me in app/views/cocktails/index.html.erb</p>
+<h1>All the good cocktails you need to know about : </h1>
 
+<% @cocktails.each do |cocktail| %>
+  <h3><%= link_to cocktail.name, cocktail_path(cocktail) %></h3>
+  <%= link_to cocktail_path(cocktail) do %>
+    <i class="fa fa-eye" aria-hidden="true"></i>
+  <% end %>
+  <%= link_to edit_cocktail_path(cocktail) do %>
+    <i class="fa fa-pencil" aria-hidden="true"></i>
+  <% end %>
+  <%= link_to cocktail_path(cocktail), method: :delete, data: { confirm: "Are you sure?" } do %>
+    <i class="fa fa-trash" aria-hidden="true"></i>
+  <% end %>
+
+  <!-- <p><strong><%= cocktail %></strong></p>
+  <span>- <%= cocktail %> - <%= cocktail %></span> -->
+  <p>----</p>
+<%end%>
+
+<br>
+<br>
+<p><%= link_to 'Create a new cocktail', new_cocktail_path, class: "btn btn-primary" %></p>
